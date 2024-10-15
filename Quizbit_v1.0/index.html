@@ -8,9 +8,11 @@
      Set the initial site settings based on device -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizbit</title>  <!-- Define the title that shows up on the browser tab -->
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet"/>    <!-- font family retrieved from Google embed link, referenced in CSS -->
     <!-- Good resource for icons: fontawesome.com
      currently using for the diamond logo of the site and all of the social media logos at the footer section -->
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous"/>
+     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
     <!-- Layering (bottom to top): Section 1, Section 2, Footer -->
@@ -21,14 +23,20 @@
                 <!-- the 'alt' attribute is when an image fails to load,
                  where the alt text displays instead, providing a fallback description
                  give it an id because we will change its size for mobile devices -->
-                <img src="//QUIZBIT LOGO//" alt="Quizbit logo" id="image__logo"/>
+                <img src="images/logo.svg" alt="Quizbit logo" id="navbar__logo"/>
             </div>
             <ul class="navbar__menu">   <!-- Top menu -->
                 <!-- <li class="navbar__item">
                     <a href="////" class="navbar__links">About Us</a>
                 </li> -->
                 <li class="navbar__item">
-                    <a href="////" class="navbar__btn"><button>Play Now</button></a>
+                    <a href="index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="////" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <button class="navbar__btn"><a href="////">Play Now</a></button>    <!-- Leads to the login page -->
                 </li>
                 <!-- TODO: ADD MORE LINKS? -->
             </ul>
@@ -45,7 +53,7 @@
                 <h2>Add MyAnimeList/Anilist/Kitsu for Custom Quizzes</h2>
                 <h2>Free to Play</h2>
                 <div class="main__img--container">
-                    <img src="//ANIME GIRL 1//" alt="Anime girl 1" class="main__img">
+                    <img src="images/main_ani1.png" alt="Anime girl 1" class="main__img">
                 </div>
             </div>
             <div class="main__content" id="main__content--flipped">
@@ -55,7 +63,7 @@
                 <h2>Climb the Ranked Ladder</h2>
                 <h2>Explore the Dungeon Crawler</h2>
                 <div class="main__img--container">
-                    <img src="//ANIME GIRL 2//" alt="Anime girl 2" class="main__img">
+                    <img src="images/main_ani2.png" alt="Anime girl 2" class="main__img">
                 </div>
             </div>
             <button class="main__btn">Start Playing Now</button>    <!-- This button simply takes you back to the top of the page -->
