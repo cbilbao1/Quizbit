@@ -1,0 +1,1019 @@
+/* 10/14/24 */
+
+* { /* Asterisk means style for everything in page */
+    box-sizing: border-box; /* determines the width and height of element. set width/height to include both content area and padding/border */
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;  /* 'Kumbh Sans' refers to the Google font we search up, referenced in the HTML */
+    /* "google fonts kumbh" and get the embed link, reference in HTML in head */
+}
+
+/* ----------------------------------------- HOME PAGE ----------------------------------------- */
+
+/* Navbar CSS */
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE NAViGATION BAR */
+.navbar {   /* NOTE: the nav element is apparently bigger than the child div */
+    /* background: #a02929; DELETE */
+    display: flex;  /* make navigation section a flexbox, 1-D */
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+
+    position: sticky;   /* Navigation bar specific, it should always be present in view positioned at the top */
+    top: 0; /* this is required to keep the bar sticky. says that the navbar is spaced 0 units from the top of the page */
+}
+
+.navbar__container {    /* configures the separation of the items in the navbar */
+    /* background: #131313; DELETE */
+    display: flex;
+    justify-content: space-between; /* keeps the logo on the left, and list on the right */
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;    /* organizes the navbar into a 1-D row */
+
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE NAVBAR IMAGE */
+.navbar__img--container {
+    height: 100%;
+    left: 0;
+}
+
+#navbar__logo { /* the logo of the site. Will be a part of the navigation bar, but not part of menu class */
+    height: 100%;   /* image actually is bigger than div container, so have to set it manually */
+}
+
+.navbar__menu {
+    background: #7ae770;
+    display: flex;
+    align-items: center;
+    /* text-align: center; */
+    flex-direction: row;
+    height: 80px;
+    
+    
+    list-style: none;   /* Menu specific. Gets rid of bullet point in front of list items */
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE NAVBAR ITEMS */
+.navbar__item {
+    background: #8a3535;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10px;
+    text-decoration: none;
+    padding: 0 1rem;
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE NAVBAR LINK BUTTONS */
+.navbar__links {    /* configures the button links to other pages */
+    background: #131313;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    
+    /* Not sure if necessary */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE NAVBAR "PLAY NOW" BUTTON */
+.navbar__btn {  /* configures the Play button with blue gradient */
+    background-image: linear-gradient(to right, #add8e6 0%, #677de0 100%);
+    cursor: pointer;
+    height: 60px;
+    width: 100px;    /* make the button fatter than the link buttons */
+}
+
+.navbar__btn a {  /* configures the text of the button to be white */
+    color: #fff;
+    text-decoration: none;  /* removes the text underline */
+}
+
+/* Description CSS */
+.main {
+    background-color: grey;
+}
+
+.main__container {  /* organizes the information blocks (aka services cards) into 1D column */
+    display: flex;
+    flex-direction: column;
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES EACH INFORMATION BLOCK (THINK OF SERVICES CARDS) */
+.main__content {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    /* grid-auto-rows: 525px; DELETE */
+}
+
+#main__content--flipped {   /* reverses the image and text for the second information block */
+    /* display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr; DELETE */
+    direction: rtl; /* this is used to reverse grids. Stands for right-to-left */
+}
+
+.main__text {
+    background-color: red;
+    color: #fff;
+    height: 17.3vw; /* this allows the information block to scale based on screen resolution. we use viewport width because we want the height of the information block to be adjusted only when the screen width shrinks */
+    width: 100%;
+    /*float: inline-end;*/  /* TODO: HAVE ALL TEXT TOWARDS CENTER AXIS. FLOAT RIGHT? */
+}
+
+.main__text h1 {   /* give h1 text an underline */
+    margin-bottom: 1vw;   /* keeps the "Anime" text from "30,000+ Songs From 7000+ Anime" from constantly spazzing out when changing browser width */
+    text-decoration: underline;
+    float: inline-end;  /* keeps h1 text near center axis */
+    font-size: 2vw; /* this allows the text to scale based on screen resolution. we use viewport width because we want the height of the text to be adjusted only when the screen width shrinks */
+}
+
+/* TODO: KEEP H2 TEXT NEAR CENTER AXIS AS WELL */
+.main__text h2 {
+    margin-top: 2.5vw;    /* creates a gap between text. this allows the gap between text to scale based on screen resolution. we use viewport width because we want the height of the text to be adjusted only when the screen width shrinks */
+    font-size: 1.5vw;    /* this allows the text to scale based on screen resolution. we use viewport width because we want the height of the text to be adjusted only when the screen width shrinks */
+    /*float: inline-start;*/    /* keeps h2 text away from center axis, towards edge */
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES EACH INFORMATION BLOCK IMAGE */
+.main__img--container {
+    background-color: rgb(134, 72, 134);
+    height: 27.3vw; /* this allows the image to scale based on screen resolution. we use viewport width because we want the height of the image to be adjusted only when the screen width shrinks */
+    /* height: 525px; */
+    width: 100%;
+}
+
+.main__img {
+    height: 100%;
+    width: auto;
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE INFORMATION BLOCK "GO BACK TO THE TOP" BUTTON */
+.main__btn {  /* configures the Go button with blue gradient */
+    background-image: linear-gradient(to right, #add8e6 0%, #677de0 100%);
+    cursor: pointer;
+    height: 100px;
+    width: 400px;
+    /* NOTE: another way to center an item is to set both margin-left and margin-right to auto */
+    margin: 0 auto; /* another way of centering an item. this positions the button on the center axis */
+    /* float: right; */
+    /*margin-left: 745px;*/ /* centers the button by creating space from left margin */
+    /* TODO: HAVE BUTTON SCROLL TO TOP WHEN CLICKED. REQUIRES JAVASCRIPT */
+}
+
+.main__btn p {  /* configures the text of the button to be white */
+    color: #fff;
+    font-size: 34px;
+}
+
+/* FOOTER CSS */
+.footer {   /* not really necessary to make it a flex because there is only one item, the "footer__container" div */
+    background: #131313;
+    /* background-color: rgb(255, 231, 185); DELETE */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__container {    /* lists the links and the copyright into a 1-D row */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__links--container { /* lists the links groups into a 1-D row */
+    /* background-color: rgb(255, 193, 234); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* NOTE: when you are using function nth-child(), you are NOT referencing A child of said attribute/class/id,
+but rather you are referencing some element WITH said attribute/class/id, WHICH IS the nth child of some higher, unspecified parent */
+/* NOTE: the selector :last-child does NOT work if the element is not the VERY LAST element in the container
+good resource on this: https://stackoverflow.com/questions/18995362/last-child-not-working-as-expected */
+/* .footer__links:nth-child(1) {
+    background-color: #677de0;
+    margin: 0 50px;
+}
+.footer__links:nth-child(2) {
+    background-color: #677de0;
+    margin: 0 50px;
+}
+.footer__links:nth-child(3) {
+    background-color: #677de0;
+    margin: 0 50px;
+} */
+
+.footer__links {    /* lists the links into a 1-D column */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* instead of accessing each child like above, just access them all with this line */
+    background-color: #677de0;
+    margin: 0 50px;
+}
+
+.footer__links h2 {
+    color: #fff;
+    font-size: 0.85vw;
+}
+
+.footer__links a {
+    font-size: 0.85vw;
+    text-decoration: none;  /* removes the underline */
+}
+
+.copyright {
+    background-color: #74a5a8;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6vw;
+}
+
+/* TODO: CHANGE ALL OF THE VW SCALING SO THAT INSTEAD OF SHRINKING ANYTIME THE BROWSER WIDTH SHRINKS,
+IT ONLY REACTS TO BROWSER SHRINKING AFTER BROWSER WIDTH REACHES A CERTAIN WINDOW WIDTH THRESHOLD */
+
+/* 10/17/24 */
+
+/* ----------------------------------------- LOGIN PAGE ----------------------------------------- */
+
+/* Login CSS */
+.login {   /* not really necessary to make it a flex because there is only one item, the "login__container" div */
+    background-color: rgb(141, 194, 255);
+    /* background-color: rgb(255, 231, 185); DELETE */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__container { /* separates the login box and the "Go Back To The Top" button into a 1-D column */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login__content {   /* the actual login box that holds all of the login input fields. separates them into a 1-D column */
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login__text {
+    color: #fff;
+}
+
+.login__cards { /* the username/password input fields and all of their labels. like services cards, they are separated into a 1-D row */
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* REDACTED */
+.login__cards--content {
+    /* the labels are already creating space */
+    /*margin: 0 10px;*/ /* create spacing between the username and password input fields */
+}
+
+/* resource for selecting a label in CSS:
+https://stackoverflow.com/questions/2599627/how-to-select-label-for-xyz-in-css */
+label[for="input__username"] {
+    color: #fff;
+    margin: 0 50px; /* centers the text */
+}
+label[for="input__checkbox"] {
+    color: #fff;
+    background-color: #131313;
+    /*margin-right: 73px;*/  /* creates space between checkbox and button */
+    cursor: pointer;
+}
+label[for="input__password"] {
+    color: #fff;
+    margin: 0 50px; /* centers the text */
+}
+
+.checkbox__container {
+    background-color: #131313;
+    margin-right: 73px;  /* creates space between checkbox and button */
+}
+
+.submit__btn {  /* the "Login" button */
+    background-color: #91d2e7;
+    margin-top: 15px;   /* shifts the button downwards so that top aligns with the checkbox */
+    margin-left: 52px;  /* creates space between button and checkbox. aligns with the password text field */
+    height: 30px;
+    width: 80px;
+    float: right;   /* shifts login button all the way to the right of the container */
+    /*margin-right: 11px; REDACTED*/ /* shifts login button a little to the left to align with the password text field */
+    cursor: pointer;
+    border-radius: 15%; /* creates a circular padding on the button */
+    /* TODO: CREATE A HOVER TRANSITION FROM BLUE TO LIGHTER BLUE */
+}
+
+.submit__btn:hover {       /* hover effect: from blue to light blue */
+    background-color: #add8e6;
+}
+
+/* TODO (FIXED!): CHANGE THE FORM TAG LOCATION IN THE HTML. CURRENTLY ALL BUTTONS ARE AFFECTING THE LOGIN. BAD! */
+
+.login__forgot--container {    /* separates the "Forgot password" and "Forgot username" buttons */
+    background-color: #85a765;
+    display: flex;
+    justify-content: space-evenly;  /* centers and spaces the "Forgot..." buttons evenly */
+    align-items: center;
+    width: 100%;    /* expands the container width outwards to help with spacing buttons */
+}
+
+.hud__btn { /* these buttons will pull up a new hud and NOT go to a new page. ex: the Create Account hud */
+    color: #677de0;
+    background-color: transparent;  /* removes button color */
+    border: none;   /* removes the black line in the outer edges of button */
+    cursor: pointer;
+}
+
+.hud__btn:hover {   /* hover effect: from blue to dark blue */
+    color: rgb(49, 79, 214);
+}
+
+.login__links { /* separates the socials links into a 1-D row */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;    /* expands the container width outwards to help with spacing buttons */
+    flex-direction: row;
+}
+
+.login__links--border { /* creates a circular border for each socials icon */
+    background: #131313;
+    align-items: start;
+    height: 46px;
+    width: 46px;
+    opacity: 0.5;
+    border-radius: 100%;    /* circular border effect */
+    /* TODO (FIXED!): INCREASE SIZE OF CIRCULAR BORDERS AND ICONS */
+}
+
+.login__links a {   /* the socials icons for the login HUD */
+    color: #fff;    /* changes the color of the icons to white */
+    font-size: 33px;
+    margin-top: 100px;
+    text-decoration: none;  /* removes the underline */
+    /* TODO: CENTER THE SOCIALS LINKS BETTER */
+}
+
+.fab.fa-youtube {
+    margin-left: 5px;
+}
+
+.fab.fa-facebook {
+    margin-left: 7px;
+}
+
+.fab.fa-twitter {
+    margin-left: 6px;
+}
+
+.fab.fa-discord {
+    margin-left: 8px;
+}
+
+/* 10/28/24 */
+
+/* ----------------------------------------- QUIZ PAGE ----------------------------------------- */
+
+/* Quiz CSS */
+/* the quiz page is a flex organized as a 1-D row (partitioned vertically) */
+/* TODO: */
+.quiz {
+    /* background-color: #4f61b1;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 1080px;
+    width: 100%;
+}
+
+.quiz__container {  /* organizes the partitions as a 1-D row */
+    background-color: #79b5b9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.quiz__partition {  /* organizes the inner content in each partition into a 1-D column */
+    background-color: #b979a0;
+    display: flex;
+    /* justify-content: space-evenly; REDACTED, WE WANT TO SPACE ITEMS BY BOTTOM */
+    align-items: center;
+    height: 100%;
+    width: 600px;
+    flex-direction: column;
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE NAVBAR GROUPING INCLUDING ITEMS:
+    "leave" button
+    "vote go back to lobby" button
+    "vote pause" */
+.quiz__navbar {
+    background-color: #cc2828;
+    height: 36px; /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR */
+    width: 100%;
+}
+
+#quiz__navbar__left {   /* the left navbar should be organizing things because it has individual buttons; the right side only has one full navbar */
+    display: flex;
+    /* justify-content: space-evenly; REDACTED NO NEED TO ORGANIZE */
+    align-items: center;
+}
+
+/* REDACTED. NOT IN USE, ONLY FOR REFERENCE */
+    .quiz__navbar--container--REDACTED {   /* necessary to shift the whole navbar to the margin */
+        background-color: #2963BD;
+        /* height: 100%; */
+        width: 220px;   /* NOTE: SHOULD BE SAME WIDTH AS CARDS */
+        float: left;    /* DELETE UNNECESSARY */
+
+        /* creates the trapezoid shape */
+        height: 0;
+        border-right: 25px solid transparent;
+        border-top: 42px solid #131313; /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+        border-left: 0px solid transparent;
+        position: relative;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.quiz__navbar__trapezoid {   /* necessary to shift the whole navbar to the margin */
+    /*background-color: #2963BD;*/  /* DELETE. this was the color for testing */
+    height: 100%;   /* trapezoid adopts height of navbar/input box */
+    width: 240px;
+    float: right;
+
+    /* creates the trapezoid shape */
+    border-right: 0px solid transparent;
+    border-top: 36px solid #131313; /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    border-left: 25px solid transparent;
+    position: relative;
+    z-index: 2;
+}
+
+/* NOTE: THE LEFT TRAPEZOID SHOULD BE SMALLER THAN RIGHT AND HAVE ITS SHAPE FLIPPED */
+#quiz__navbar__trapezoid__left {   /* specifically for the 'Leave' button */
+    width: 110px;
+    transform: scaleX(-1);  /* NOTE: NOW WE ALSO HAVE TO FLIP THE BUTTON ITSELF BECAUSE WE DID THIS */
+    float: left;    /* override 'float: right;' */
+}
+
+.quiz__leave--btn { /* TODO: mainly for shifting transform to fit into trapezoid box */
+    position: relative;
+    /* TODO: FIX SHIFT */
+    transform: translate(-53px, 10px) scaleX(-1);  /* NOTE: REFLIP THE BUTTON BECAUSE #quiz__navbar__trapezoid__left FLIPPED IT */
+    
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+}
+
+.quiz__leave--btn a {
+    color: #fff;
+    font-size: 33px;
+    text-decoration: none;
+}
+
+.quiz__navbar__diamond--btn {
+    /*background-color: #6153a0;*/  /* DELETE. this was the color for testing */
+    height: 100%;   /* diamond adopts height of navbar */
+    width: 90px;
+
+    position: relative;
+    transform: translate(-20px, 0px);   /* shift the first diamond button closer to the 'Leave' button */
+}
+
+.quiz__navbar__diamond--btn:nth-child(3) {   /* the second instance of quiz diamond in navbar, but it is the third child of its parent */
+    transform: translate(-40px, 0px);   /* shift the second diamond button a closer to the first diamond button */
+}
+
+/* TODO (FIXED!): FIX SHAPE. MAYBE MAKE TWO TRIANGLES AND A SQUARE TO FORM TRAPEZOID-DIAMOND */
+.quiz__navbar__triangle1 {   /* creates the diamond border for the vote lobby and vote pause buttons */
+    /* background-color: #c6cdd8; */
+    /* height: 100%; */
+    width: 0px;   /* DELETE THIS NOTE - NOTE: SHOULD BE SAME WIDTH AS CARDS */
+    float: left;
+
+    /* creates the trapezoid shape */
+    height: 0;
+    border-right: 25px solid transparent;
+    border-top: 36px solid #1b1b1b; /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    /*border-top: 42px solid #667750;*/ /* DELETE. this was the color for testing NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    border-left: 0px solid transparent;
+    transform: scale(-1, -1);
+}
+.quiz__navbar__square {   /* creates the diamond border for the vote lobby and vote pause buttons */
+    /* background-color: #c6cdd8; */
+    /* height: 100%; */
+    width: 0px;   /* DELETE THIS NOTE - NOTE: SHOULD BE SAME WIDTH AS CARDS */
+    float: left;
+
+    /* creates the trapezoid shape */
+    /* height: 0; */
+    /* border-right: 20px solid #292929; */
+    /*border-top: 21px solid #292929;*/ /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    /* border-left: 20px solid #292929; */
+    /* border-bottom: 21px solid #292929; */
+
+    background-color: #1b1b1b;
+    height: 36px;   /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    width: 40px;
+}
+.quiz__navbar__triangle2 {   /* creates the diamond border for the vote lobby and vote pause buttons */
+    /* background-color: #c6cdd8; */
+    /* height: 100%; */
+    width: 0px;   /* NOTE: SHOULD BE SAME WIDTH AS CARDS */
+    float: left;
+
+    /* creates the trapezoid shape */
+    height: 0;
+    border-right: 25px solid transparent;
+    border-top: 36px solid #1b1b1b; /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    /*border-top: 42px solid #5a8188;*/ /* DELETE. this was the color for testing NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    border-left: 0px solid transparent;
+}
+
+.quiz__votelobby--btn { /* TODO: mainly for shifting transform to fit into diamond box */
+    position: relative;
+    transform: translate(-53px, 10px);  /* TODO: FIX SHIFT */
+    
+    color: #fff;
+    font-size: 37px;
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+}
+
+.quiz__votepause--btn {  /* TODO: mainly for shifting transform to fit into diamond box */
+    position: relative;
+    transform: translate(-51px, 10px);  /* TODO: FIX SHIFT */
+
+    color: #fff;
+    font-size: 37px;
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+}
+
+/* REDACTED */
+/* #quiz__navbar--container--flipped {*/   /* necessary to shift the whole navbar to the margin */
+    /* float: right; */
+    /*transform: scaleX(-1);*/  /* mirrors horizontally across the x-axis */
+/* } */
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE CARD GROUPING INCLUDING ITEMS:
+    "Standing" text
+    "Player Standings" list
+    "Song info" list */
+.quiz__cards {    /* organizes the (left and right) card partition as a 1-D column */
+    background-color: #7eb979;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 245px;
+    width: 220px;   /* NOTE: SHOULD BE SAME WIDTH AS FULL NAVBAR */
+    flex-direction: column;
+
+    position: relative;
+    top: 130px;
+}
+
+.quiz__cards--content {    /* the (left and right) box holding the text contents */
+    /* background-color: #446568;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 100%;
+    width: 100%;
+}
+
+.quiz__cards--content--container {  /* organizes the contents in the box information to be a 1-D row */
+    background-color: #424242;
+    /*background-color: #6e7575;*/  /* DELETE. this was the color for testing */
+    font-size: 10px;/* make sure to DELETE */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    border-radius: 4.5%; /* creates a circular padding on the cards */
+}
+
+.quiz__cards--content--container h1 {
+    color: #fff;
+}
+
+.quiz__cards--list {
+    /* TODO: */
+}
+
+.quiz__halfOval { /* the half oval that displays progress of quiz */
+    height: 32px;
+    width: 90px;
+    background: radial-gradient(ellipse at 50% 100%, #a0C580 70%, transparent 70%);
+}
+
+.quiz__halfOval h1 {
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    
+    position: relative;
+    transform: translate(0px, 5px);
+}
+
+#quiz__cards__center {  /* the center card that displays the answer. this card is actually spaced near the top */
+    top: 0; /* override 'top: 130px;' */
+    height: 75px;   /* make shorter than left and right card */
+    width: 330px;   /* make longer than left and right card */
+
+    margin-bottom: 10px;    /* create spacing between this center card and the video player */
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE BOX PLAYING THE MEDIA */
+.quiz__media {   /* defines the size of the video box */
+    background-color: #9b9494;
+    /*height: 375px;*/   /* REDACTED. NOTE: MUST BE 5X TALLER THAN '.quiz__cards_center' */
+    height: 345px;  /* NOTE: CHANGE THIS VALUE TO MODIFY SPACING OF INPUT ANSWER BOX */
+    width: 850px;
+
+    margin-bottom: 90px;    /* create spacing between this video player and the input text field */
+}
+
+.quiz__media--container {
+    /* background-color: #8b2d83; */
+    height: 100%;
+    width: 100%;
+    border-radius: 1%; /* creates a circular padding on the media player */
+}
+
+/* Resource on creating a simple video player:
+https://www.youtube.com/watch?v=Ix7PRy3iOKA */
+/*#quiz__media--player {*/  /* the video player object */
+.quiz__media--player {  /* the video player object */
+    width: 100%;    /* NOTE: DO NOT DEFINE THE HEIGHT SO THAT THE TOP PART OF THE VIDEO PLAYER STICKS ONTO THE VIDEO TITLE BOX */
+}
+
+/* CONTROLLER: THE SELECTOR THAT MAINTAINS SCALABILITY
+SCALES THE BOX INPUT ANSWER FIELD */
+.quiz__input {
+    background-color: #b95976;
+    height: 45px;
+    width: 600px;
+
+    /* display: flex; */
+    /*justify-content: space-between;*/ /* this keeps the 'Vote Skip' button on the left */
+    /* align-items: center; */
+}
+
+#quiz__navbar__trapezoid__skip {   /* specifically for the 'Vote Skip' button */
+    height: 100%;
+    width: 110px;
+
+    border-top: 45px solid #131313;  /* override 'border-top: 36px solid #131313;' */
+
+    position: relative;
+    transform: translate(-490px, 0px) scaleX(-1);    /* NOTE: NOW WE ALSO HAVE TO FLIP THE BUTTON ITSELF BECAUSE WE DID THIS */
+
+    z-index: 1;
+}
+
+.quiz__skip--btn { /* TODO: mainly for shifting transform to fit into trapezoid box */
+    color: #fff;
+    font-size: 33px;
+    text-decoration: none;
+    
+    position: relative;
+    /* TODO: FIX SHIFT */
+    transform: translate(-53px, 10px) scaleX(-1);  /* NOTE: REFLIP THE BUTTON BECAUSE #quiz__navbar__trapezoid__left FLIPPED IT */
+    
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+}
+
+/*.quiz__input--outer {*/   /* grey outer box of answer input field */
+    /* background-color: #424242;
+    height: 100%;
+    width: 100%; */
+/* } */
+
+/*.quiz__input--inner {*/   /* black inner box of answer input field */
+    /* background-color: #1b1b1b;
+    height: 90%;
+    width: 90%; */
+/* } */
+
+.quiz__input--box { /* outer box for input answer text field */
+    background-color: #1b1b1b;
+    position: relative;
+    height: 100%;
+    width: 100%;    /* TODO: MAKE THIS BOX UNDER THE SKIP BUTTON LAYER */
+
+    /* create the border */
+    border: 5px solid #424242;
+    border-radius: 1%;
+    box-sizing: border-box; /* DELETE NOT NECESSARY */
+
+    z-index: 0;
+}
+
+input[id="input__answer"] {    /* change size of input answer text field */
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform: translate(0px, -40px);
+    background-color: transparent;  /* remove the white background of the input answer text field */
+    text-align: center; /* let the typing-cursor position at the center of input text field */
+    color: #fff;    /* change the user input font color to white while typeing */
+}
+
+/* Right Quiz Navbar Buttons */
+#quiz__list--btn {
+    color: #fff;
+    font-size: 20px;
+    position: relative;
+    transform: translate(2px, -30px);
+    
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+#quiz__list--btn:hover {
+    color: #a1a1a1;
+}
+
+#quiz__bars--btn {
+    color: #fff;
+    font-size: 20px;
+    position: relative;
+    transform: translate(10px, -30px);
+    
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+#quiz__bars--btn:hover {
+    color: #a1a1a1;
+}
+
+#quiz__cog--btn {
+    color: #fff;
+    font-size: 20px;
+    position: relative;
+    transform: translate(25px, -30px);
+    
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 3; /* should be on top of navbar trapezoid */
+}
+#quiz__cog--btn:hover {
+    color: #a1a1a1;
+}
+.quiz__cog--dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    float: right;
+
+    /*display: none;*/  /* REDACTED, WE DON'T WANT TO GIVE UP ITS PHYSICAL SPACE IN THE PAGE, BUT ONLY TO DISAPPEAR. hide the dropdown menu */
+    /*visibility: hidden;*/ /* hide the dropdown menu */
+    position: relative;
+    background-color: #a13131;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);    /* apply a shadowy "glow" around the dropdown box */
+    z-index: 1; /* should be under navbar trapezoid */
+    
+    /*transform: translate(60px, -73px);*/ /* REDACTED, OLD CONFIGURATION WHEN THE DROPDOWN WAS UNDER COG BUTTON IN HTML. the starting position of the dropdown before transitioning */
+    /*transform: translate(446px, -15px);*/ /* REDACTED, FOR 'POSITION: ABSOLUTE' CONFIGURATION. the starting position of the dropdown before transitioning */
+    transform: translate(126px, -15px); /* the starting position of the dropdown before transitioning */
+    transition: transform 0.75s ease;   /* the dropdown will inherently have this property */
+}
+.quiz__cog--dropdown button {
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+}
+.quiz__cog--dropdown button:hover {
+    background: rgb(247, 76, 76);
+    /* TODO: HAVE THE OPTION HAVE A DIFFERENT STATIC HIGHLIGHT FOR WHICHEVER OPTION IS CURRENTLY SELECTED */
+}
+
+#quiz__navbar__right {  /* to help with the layering of the cog button and cog dropdown */
+    z-index: 2; /* should be on top of cog dropdown */
+    /* background-color: rgb(157, 47, 190); DELETE. FOR TESTING ONLY */
+}
+
+#show { /*display: block;*/   /* override 'display: none;' */
+    /*visibility: visible;*/   /* override 'visibility: hidden;' */
+    /*transform: translate(60px, -25px);*/ /* REDACTED, OLD CONFIGURATION WHEN THE DROPDOWN WAS UNDER COG BUTTON IN HTML. this is the ending position of the dropdown after transition */
+    /*transform: translate(446px, 36px);*/ /* REDACTED, FOR 'POSITION: ABSOLUTE' CONFIGURATION. this is the ending position of the dropdown after transition */
+    transform: translate(126px, 36px); /* this is the ending position of the dropdown after transition */
+}
+
+#quiz__volume__off--btn {
+    color: #fff;
+    font-size: 20px;
+    position: relative;
+    transform: translate(40px, -30px);
+    /* transform: translate(110px, -76px); */   /*MESSED UP BY DROPDOWN*/
+    
+    padding: 0; /* remove border of button */
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+#quiz__volume__off--btn:hover {
+    color: #a1a1a1;
+}
+
+.quiz__list__btn--caption {
+    position: relative;
+    /*transform: translate(62px, 36px);*/ /* REDACTED, FOR BEFORE THE 'POSITION: RELATIVE' CHANGE. */
+    transform: translate(89px, 36px);
+    
+    /* TODO: CREATE THE TRANSITION OPACITY */
+    opacity: 0; /* the starting opacity of the caption before transitioning */
+    transition: opacity 0.35s ease;   /* the caption will inherently have this property */
+}
+#appear {
+    opacity: 1; /* this is the ending opacity of the caption after transition */
+}
+.quiz__list__btn--triangle {   /* creates the triangle pointer towards the button */
+    /* background-color: #c6cdd8; */
+    /* height: 100%; */
+    width: 0px;   /* DELETE THIS NOTE - NOTE: SHOULD BE SAME WIDTH AS CARDS */
+    float: right;
+
+    /* creates the trapezoid shape */
+    height: 0;
+    border-right: 12px solid transparent;
+    border-bottom: 15px solid #4b3599; /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    /*border-top: 42px solid #667750;*/ /* DELETE. this was the color for testing NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    border-left: 12px solid transparent;
+}
+.quiz__list__btn--square {
+    background-color: #9b3d3d;
+    height: 36px;   /* same height as navbar */
+    width: 125px;
+    /*transform: translate(242px, 15px);*/ /* REDACTED, FOR BEFORE THE 'POSITION: RELATIVE' CHANGE. shift square under triangle */
+    transform: translate(76px, 15px); /* shift square under triangle */
+    z-index: 1;
+    position: relative;
+    float: right;
+    border-radius: 4.5%;
+}
+.quiz__list__btn--caption h3 {
+    font-size: 15px;
+    z-index: 10;
+    color: #fff;
+    position: relative;
+    float: right;
+    /*transform: translate(260px, -13px); REDACTED, FOR BEFORE THE 'POSITION: RELATIVE' CHANGE. */
+    transform: translate(184px, 22px);
+}
+
+.quiz__bars__btn--caption {
+    position: relative;
+    /*transform: translate(62px, 36px);*/ /* REDACTED, FOR BEFORE THE 'POSITION: RELATIVE' CHANGE. */
+    transform: translate(439px, 36px);
+    height: 100%;
+    width: 1px;
+    
+    /* TODO: CREATE THE TRANSITION OPACITY */
+    opacity: 0; /* the starting opacity of the caption before transitioning */
+    transition: opacity 0.35s ease;   /* the caption will inherently have this property */
+}
+#appearbars {
+    opacity: 1; /* this is the ending opacity of the caption after transition */
+}
+.quiz__bars__btn--triangle {   /* creates the triangle pointer towards the button */
+    /* background-color: #c6cdd8; */
+    /* height: 100%; */
+    width: 0px;   /* DELETE THIS NOTE - NOTE: SHOULD BE SAME WIDTH AS CARDS */
+    float: right;
+
+    /* creates the trapezoid shape */
+    height: 0;
+    border-right: 12px solid transparent;
+    border-bottom: 15px solid #4b3599; /* NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    /*border-top: 42px solid #667750;*/ /* DELETE. this was the color for testing NOTE: SHOULD BE SAME WIDTH AS THE NAVBAR CONTAINER */
+    border-left: 12px solid transparent;
+}
+.quiz__bars__btn--square {
+    background-color: #9b3d3d;
+    height: 36px;   /* same height as navbar */
+    width: 85px;
+    /*transform: translate(242px, 15px);*/ /* REDACTED, FOR BEFORE THE 'POSITION: RELATIVE' CHANGE. shift square under triangle */
+    transform: translate(29px, 0px); /* shift square under triangle */
+    z-index: 1;
+    position: relative;
+    float: right;
+    border-radius: 4.5%;
+}
+.quiz__bars__btn--caption h3 {
+    font-size: 15px;
+    z-index: 10;
+    color: #fff;
+    position: relative;
+    float: right;
+    /*transform: translate(260px, -13px); REDACTED, FOR BEFORE THE 'POSITION: RELATIVE' CHANGE. */
+    transform: translate(16px, -28px);
+}
+
+/* Resource on resizable objects:
+https://stackoverflow.com/questions/13526712/make-div-draggable-using-css */
+[draggable=true] {
+    cursor: move;
+}
+.quiz__list__btn--popup {
+    overflow: scroll;
+    resize: both;
+    max-width: 300px;
+    max-height: 460px;
+    border: 1px solid black;
+    min-width: 50px;
+    min-height: 50px;
+    background-color: skyblue;
+}
+
+#timer {
+    font-size: 90px;
+    color: #fff;
+    font-weight: lighter;   /* makes the text of the timer skinnier */
+    /* z-index: 100; */
+}
+
+#disappear {    /* an id attribute that hides an element. currently being used for timer and media player */
+    /* visibility: hidden; */
+    opacity: 0; /* instead of doing 'visibility: hidden', just change opacity because apparently the innerText element gets affected if you change visibility */
+}
+
+
+
+
+
+
+
+
+
+
+
+.quiz__cards--textpair {
+
+}
+
+.quiz__song__name {
+
+}
+
+.quiz__song__artist {
+    
+}
+
+.quiz__song__type {
+    
+}
