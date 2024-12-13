@@ -767,6 +767,185 @@ input[id="input__answer"] {    /* change size of input answer text field */
     color: #fff;    /* change the user input font color to white while typeing */
 }
 
+/* TODO: ADJUST SIZE OF SUGGESTIONS BOX BASED ON AMOUNT OF SUGGESTIONS */
+.quiz__input__suggestions--box {    /* create the box for the input suggestions */
+    background-color: #424242;
+    height: 0px;
+    width: 0px;
+    position: relative;
+    transform: translate(0px, -40px);    /* shift the suggestions box */
+    transition: height 0.35s ease, width 0.35s ease, opacity 0.35s ease;   /* the suggestions box will inherently have this property */
+}
+
+#quiz__input__suggestions--transition { /* the ending configuration for the transition for the suggestions box */
+    height: 190px; /* the ending height of the suggestions box after transition */
+    width: 100%; /* the ending width of the suggestions box after transition. matches the width of the input field box */
+    opacity: 1; /* the ending opacity of the suggestions box after transition */
+}
+
+#input__suggestions {
+    color: #fff;
+    list-style-type: none;  /* removes the dot of the list element */
+    text-align: center; /* aligns the text in the center of the box */
+}
+
+#input__suggestions:hover { /* when the user hovers on an input suggestion */
+    background-color: #3d6d8f;  /* change the background color of the suggestion item */
+}
+
+/* User Character Icons */
+.quiz__user {  /* the player's character */
+}
+
+.quiz__user--container {    /* organizes the player's picture and information into a 1-D column */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz__user--answer--box {   /* displays the player's answer to the question. hovers above the character picture */
+    background-color: #424242;
+    height: 45px;  /* the height should match the quiz input answer box */
+    width: 180px;
+    opacity: 0.75;
+    text-align: center;
+    
+    /* another way to vertically center a text */
+    /* grid-area: hd;
+    display: flex;
+    align-items: center; */
+
+    transform: translate(0px, 55px);
+}
+
+.quiz__user--answer--text {
+    color: #fff;
+    
+    /* vertically center the text */
+    top: 50%;
+    transform: translateY(55%); /* center by shifting down */
+}
+
+.quiz__user--banner {   /* the player's character's picture */
+    background-color: #131313;
+}
+
+/* different sizes:
+    100 x 142 | 100 x 128
+    150 x 213 | 150 x 192
+    250 x 354 | 250 x 321
+    350 x 496 | 350 x 449
+    500 x 709 | 500 x 641
+    600 x 850 | 600 x 770
+    900 x 1275 | 900 x 1155
+*/
+.quiz__user--picture {   /* the user's profile picture */
+    /* background-color: #131313; */
+    height: 256px;
+    width: 200px;
+}
+
+.quiz__user--nametag {   /* the player's username */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    z-index: 3; /* should be above info and role trapezoid */
+}
+
+.quiz__user--nametag--container {   /* organizes the circle and trapezoid into a 1-D row */
+    display: flex;
+    flex-direction: row;
+}
+                                
+.quiz__user--nametag--circle {
+    background-color: #1b1b1b; /* same color as left and right quiz navbar */
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
+
+.quiz__user--nametag--score {    /* shows the current correct points of player */
+    color: #fff;
+    text-align: center;
+    font-size: 150%;
+
+    /* vertically center the text */
+    top: 50%;
+    transform: translateY(25%); /* center by shifting down */
+}
+
+.quiz__user--nametag--trapezoid { /* the part that actually holds the username */
+    /* creates the trapezoid shape */
+    border-right: 25px solid transparent;
+    border-top: 30px solid #1b1b1b; /* NOTE: SHOULD BE ABOUT HALF HEIGHT OF THE CIRCLE, WHICH IS 45px */
+    border-left: 0px solid transparent;
+    position: relative;
+    z-index: 2;
+
+    width: 180px;   /* NOTE: SHOULD BE THE SAME WIDTH AS THE CIRCLE */
+    transform: translate(-15px, 0px);   /* shift left */
+}
+
+.quiz__user--nametag--username {    /* the text for the player username */
+    color: #fff;
+    text-align: center;
+    
+    /* vertically center the text */
+    top: 50%;
+    transform: translateY(-120%);   /* center by shifting up */
+}
+
+.quiz__user--info {  /* the player's role information; guest/host. organized as a 1-D row */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transform: translate(-20px, -23px);   /* shift left and up */
+
+    z-index: 2; /* TODO: DELETE. JUST FOR TESTING */
+}
+                            
+.quiz__user--info--trapezoid {   /* this is currently unknown */
+    /* creates the trapezoid shape */
+    border-right: 15px solid transparent;
+    border-top: 15px solid #243274; /* NOTE: SHOULD FILL REST OF HEIGHT (TRAPEZOID IS 30px) OF THE CIRCLE, WHICH IS 45px */
+    border-left: 0px solid transparent;
+    position: relative;
+    z-index: 2; /* should be under circle, should be above the role trapezoid */
+
+    width: 50px;
+}
+
+.quiz__user--info--text {
+    color: #fff;
+    font-size: 100%;
+
+    /* vertically center text, shift right */
+    top: 50%;
+    transform: translate(15px, -85%);
+}
+
+.quiz__user--role--trapezoid {  /* displays the role of the player: guest/host */
+    /* creates the trapezoid shape */
+    border-right: 15px solid transparent;
+    border-top: 15px solid #744124; /* NOTE: SHOULD FILL REST OF HEIGHT (TRAPEZOID IS 30px) OF THE CIRCLE, WHICH IS 45px */
+    border-left: 0px solid transparent;
+    position: relative;
+    z-index: 1; /* should be under the info trapezoid and circle */
+
+    width: 70px;
+    transform: translate(-15px); /* shift left, slipping under the info trapezoid */
+}
+
+.quiz__user--role--text {
+    color: #fff;
+    font-size: 100%;
+
+    /* vertically center text, shift right */
+    top: 50%;
+    transform: translate(15px, -85%);
+}
+
 /* Right Quiz Navbar Buttons */
 #quiz__list--btn {
     color: #fff;

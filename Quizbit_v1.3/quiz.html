@@ -104,7 +104,7 @@
                     </div>
                     
                     
-                    <form class="quiz__input--box">   <!-- outer box for input answer text field -->
+                    <div class="quiz__input--box">   <!-- outer box for input answer text field -->
                     <!--<div class="quiz__input--outer">-->   <!-- REDACTED grey outer box -->
                         <!--<div class="quiz__input--inner">-->  <!-- REDACTED black inner box -->                               
                             <input type="text" id="input__answer" name="input__answer" placeholder="Input answer..."></input>
@@ -112,8 +112,44 @@
                             <!-- 'hidden' attribute makes the element disappear. there is a possiblity that it disables submit on enter -->
                             <!-- 'tabindex' attribute prevents the submit button from being reachable by tab -->
                             <input type="submit" value="None" class="input__submit" hidden tabindex="-1"></input>    <!-- we want to be able to submit by pressing enter with no button -->
+
+                             <div class="quiz__input__suggestions--box">  <!-- create the suggestions box -->
+                                <ul id="input__suggestions"></ul> <!-- right under this input field box, create the unordered list element to hold all of the input suggestions -->
+                             </div>
                         <!-- </div> -->
-                    </form>
+                    </div>
+                </div>
+
+                <div class="quiz__user">   <!-- the player's character -->
+                    <div class="quiz__user--container">
+                        <div class="quiz__user--answer--box">   <!-- displays the player's answer to the question. hovers above the character picture -->
+                            <h3 class="quiz__user--answer--text">Answer...</h3>
+                        </div>
+                        
+                        <div class="quiz__user--banner">   <!-- the player's character's picture -->
+                            <img src="/users/Basic.png" class="quiz__user--picture"/>   <!-- the user's profile picture -->
+                        </div>
+                        
+                        <div class="quiz__user--nametag">   <!-- the player's username -->
+                            <div class="quiz__user--nametag--container">
+                                <div class="quiz__user--nametag--circle">
+                                    <h3 class="quiz__user--nametag--score">0</h3>   <!-- shows the current correct points of player -->
+                                </div>
+                                <div class="quiz__user--nametag--trapezoid"> <!-- the part that actually holds the username -->
+                                    <h3 class="quiz__user--nametag--username">Username</h3> <!-- the text for the player username -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz__user--info">  <!-- the player's role information; guest/host -->
+                            <div class="quiz__user--info--trapezoid">   <!-- this is currently unknown -->
+                                <h3 class="quiz__user--info--text">10</h3>
+                            </div>
+                            <div class="quiz__user--role--trapezoid">  <!-- displays the role of the player: guest/host -->
+                                <h3 class="quiz__user--role--text">Host</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
