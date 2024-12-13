@@ -474,6 +474,9 @@ function reset() {  // a function for resetting the round. used for transitionin
     // timerText.removeAttribute("id", "disappear");   // DELETE, NOT NECESSARY. restore the text
     timerText.setAttribute("id", "timer");  // restore the text
 
+    //TODO: RESET ALL OF THE PLAYERS' CURRENT ANSWERS
+    //TODO: RESET ALL OF THE PLAYERS' ANSWER TEXT'S CURRENT DISPLAY. MAKE TEXT DISAPPEAR
+
     //select a new song from the current quiz session set
     //TODO: SELECT THE NEW SONG FROM THE CURRENT QUIZ SESSION SET
 
